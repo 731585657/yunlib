@@ -1,0 +1,69 @@
+<form id="add-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+    {:token()}
+
+    <div class="form-group">
+        <label for="name" class="control-label col-xs-12 col-sm-2">案例名称:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" class="form-control" id="title" name="row[title]"  value="{$row.title|htmlentities}" data-rule="required" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">封面图:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-image" data-rule="required" class="form-control" size="50" name="row[image]" type="text" value="{$row.image|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-image" class="btn btn-danger plupload cropper" data-aspect-ratio="0.8" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp"   data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> Upload</button></span>
+                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> Choose</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-image"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-image"></ul>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="weigh" class="control-label col-xs-12 col-sm-2">排序:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" class="form-control" id="weigh" name="row[weigh]" value="{$row.weigh}" data-rule="required" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="weigh" class="control-label col-xs-12 col-sm-2">发布日期:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" class="form-control datetimepicker" data-date-format=" YYYY-MM-DD"  value="{$row.release_time}"   id="release_time" name="row[release_time]"  data-rule="required" />
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="remark" class="control-label col-xs-12 col-sm-2">产品简介:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" id="remark" name="row[intro]">{$row.intro}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="remark" class="control-label col-xs-12 col-sm-2">内容:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control editor" id="condition" name="row[content]">{$row.content}</textarea>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[status]', ['1'=>__('Normal'), '0'=>__('Hidden')],$row['status'])}
+<!--            {:build_radios('row[status]', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')], $row['status'])}-->
+        </div>
+    </div>
+
+    <div class="form-group hidden layer-footer">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+{include file="auth/rule/tpl" /}

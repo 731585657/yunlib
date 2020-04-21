@@ -1,0 +1,9 @@
+[ 2020-03-11T14:06:32+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-03-11T14:06:32+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-03-11T14:06:32+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ 2020-03-11T14:06:32+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-03-11T14:06:32+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;port=3306;dbname=yunlibx;charset=utf8
+[ 2020-03-11T14:06:32+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'test' [ RunTime:0.001000s ]
+[ 2020-03-11T14:06:32+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_test' [ RunTime:0.030002s ]
+[ 2020-03-11T14:06:32+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'yunlibx' AND table_name = 'fa_test' ORDER BY ORDINAL_POSITION [ RunTime:0.028002s ]

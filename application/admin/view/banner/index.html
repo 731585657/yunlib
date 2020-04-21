@@ -1,0 +1,29 @@
+<style>
+    .bootstrap-table tr td .text-muted {color:#888;}
+</style>
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" title="{:__('Refresh')}" ><i class="fa fa-refresh"></i> </a>
+                        <a href="javascript:;" class="btn btn-success btn-add {:$auth->check('Banner/add')?'':'hide'}" title="{:__('Banner图')}" ><i class="fa fa-plus"></i> {:__('添加Banner图')}</a>
+                        <a href="javascript:;" class="btn btn-info btn-tanchuang {:$auth->check('Banner/add')?'':'hide'}" title="{:__('添加视频')}" ><i class="fa fa-plus"></i> {:__('添加视频')}</a>
+                        <!--<a href="javascript:;" class="btn btn-danger btn-del btn-disabled disabled {:$auth->check('Webimg/del')?'':'hide'}" title="{:__('Delete')}" ><i class="fa fa-trash"></i> {:__('Delete')}</a>-->
+                        <!---->
+                        <!--<a href="javascript:;" class="btn btn-danger btn-toggle-all"><i class="fa fa-plus"></i> {:__('Toggle all')}</a>-->
+                    </div>
+                    <table id="table" class="table table-bordered table-hover"
+                           data-operate-edit="{:$auth->check('Banner/edit')}"
+                           data-operate-del="{:$auth->check('Banner/del')}"
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
